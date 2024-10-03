@@ -1,10 +1,20 @@
 import { Routes } from '@angular/router';
-import { CatSearchComponent } from './components/cat-search/cat-search.component';
-import { FavoritesComponent } from './components/favorites/favorites.component';
 
 export const routes: Routes = [
-  { path: 'cats', component: CatSearchComponent },
-  { path: 'favorites-cats', component: FavoritesComponent },
+  {
+    path: 'cats',
+    loadComponent: () =>
+      import('./components/cat-search/cat-search.component').then(
+        (m) => m.CatSearchComponent
+      ),
+  },
+  {
+    path: 'favorites-cats',
+    loadComponent: () =>
+      import('./components/favorites/favorites.component').then(
+        (m) => m.FavoritesComponent
+      ),
+  },
   { path: '', redirectTo: '/cats', pathMatch: 'full' },
   { path: '**', redirectTo: '/cats' },
 ];
