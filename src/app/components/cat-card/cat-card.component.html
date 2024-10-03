@@ -1,0 +1,21 @@
+<mat-card class="card" appearance="outlined">
+  <mat-card-header>
+    <mat-card-title>{{ cat.breeds[0].name }}</mat-card-title>
+  </mat-card-header>
+  <img mat-card-image class="card__image" [src]="cat.url" alt="cat" />
+  <mat-card-content class="card__content">
+    <p>Life Span: {{ cat.breeds[0].life_span }} years</p>
+    <p>Temperament: {{ cat.breeds[0].temperament }}</p>
+    <p class="card__description">
+      {{ cat.breeds[0].description.slice(0, 150) }}
+    </p>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-icon-button (click)="onToggleFavorite()">
+      <mat-icon>{{ isFavorite ? "favorite" : "favorite_border" }}</mat-icon>
+    </button>
+    <a mat-icon-button [href]="cat.breeds[0].wikipedia_url" target="_blank">
+      <mat-icon>link</mat-icon>
+    </a>
+  </mat-card-actions>
+</mat-card>

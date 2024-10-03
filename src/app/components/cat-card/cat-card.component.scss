@@ -1,0 +1,28 @@
+.card {
+  max-width: 345px;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  }
+}
+
+.card__image {
+  height: 350px;
+  object-fit: cover;
+}
+
+.card__content {
+  height: 200px;
+}
+.card__description {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  word-wrap: break-word;
+  hyphens: auto;
+}

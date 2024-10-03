@@ -1,0 +1,18 @@
+<mat-toolbar color="primary" class="header">
+  <span>{{ title }}</span>
+  <ng-container *ngIf="favoritesCount$ | async as favoritesCount">
+    <button
+      *ngIf="favoritesCount > 0"
+      [routerLink]="'/favorites-cats'"
+      mat-fab
+      extended
+    >
+      <mat-icon>favorite</mat-icon>
+      Favorites
+    </button>
+  </ng-container>
+  <button *ngIf="showHomeButton" [routerLink]="'/'" mat-fab extended>
+    <mat-icon>home</mat-icon>
+    Home
+  </button>
+</mat-toolbar>

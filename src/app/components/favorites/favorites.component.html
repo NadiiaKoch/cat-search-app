@@ -1,0 +1,9 @@
+<app-header [title]="'Favorite Cats'" [showHomeButton]="true"></app-header>
+<div class="content">
+  <app-cat-card
+    *ngFor="let cat of favorites$ | async; trackBy: trackByCatId"
+    [cat]="cat"
+    [isFavorite]="true"
+    (toggleFavorite)="toggleFavorite(cat)"
+  ></app-cat-card>
+</div>

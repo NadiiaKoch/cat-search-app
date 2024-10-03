@@ -1,0 +1,26 @@
+<app-header
+  [title]="'Cat breeds'"
+  [favoritesCount$]="favoritesCount$"
+></app-header>
+
+<div *ngIf="loading" class="loader-container">
+  <mat-spinner></mat-spinner>
+</div>
+
+<mat-drawer-container *ngIf="!loading">
+  <mat-drawer mode="side" opened>
+    <app-filter
+      [form]="form"
+      [breeds$]="breeds$"
+      (search)="onSearch()"
+    ></app-filter>
+  </mat-drawer>
+  <mat-drawer-content class="content">
+    <app-cat-card
+      *ngFor="let cat of cats$ | async; trackBy: trackByCatId"
+      [cat]="cat"
+      [isFavorite]="isFavorite(cat)"
+      (toggleFavorite)="toggleFavorite(cat)"
+    ></app-cat-card>
+  </mat-drawer-content>
+</mat-drawer-container>
